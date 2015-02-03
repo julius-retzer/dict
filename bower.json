@@ -1,14 +1,14 @@
 {
-  "name": "angular-phonecat",
-  "description": "A starter project for AngularJS",
+  "name": "dict",
+  "description": "Translate service built with AngularJS",
   "version": "0.0.0",
-  "homepage": "https://github.com/angular/angular-phonecat",
+  "homepage": "https://github.com/wormyy/dict.git",
   "license": "MIT",
   "private": true,
   "dependencies": {
     "angular": "1.3.x",
     "angular-mocks": "1.3.x",
-    "jquery": "~2.1.1",
-    "bootstrap": "~3.1.1"
+    "jquery": "~2.1.3",
+    "bootstrap": "~3.3.2"
   }
 }

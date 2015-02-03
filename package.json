@@ -1,9 +1,9 @@
 {
   "version": "0.0.0",
   "private": true,
-  "name": "angular-phonecat",
-  "description": "A tutorial application for AngularJS",
-  "repository": "https://github.com/angular/angular-phonecat",
+  "name": "dict",
+  "description": "Translate service built with AngularJS",
+  "repository": "https://github.com/wormyy/dict.git",
   "license": "MIT",
   "devDependencies": {
     "karma": "^0.12.16",
