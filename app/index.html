@@ -14,19 +14,15 @@
   <script src="js/app.js"></script>
 </head>
 
-<body ng-controller="LanguageController">
+<body ng-controller="LanguageCtrl">
   <div class="container">
    <div class="row jumbotron">
     <h1>Translation service</h1>
    </div>
     <div class="row">
       <ul class="nav nav-tabs nav-justified">
-        <li role="presentation" class="active"><a href="#">Home</a>
-          {{test}}
-        </li>
-        <li role="presentation"><a href="#">Profile</a>
-        </li>
-        <li role="presentation"><a href="#">Messages</a>
+        <li role="presentation" class="active" ng-repeat="language in languages">
+          <a href="#">{{ language }}</a>
         </li>
       </ul>
     </div>
