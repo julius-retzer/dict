@@ -1,0 +1,7 @@
+<div class="tab-pane" ng-repeat="language in languages" id="{{ language }}">
+  <ul class="list-group">
+    <li class="list-group-item text-center" ng-repeat="(key, value) in words">
+      {{ key }} : <input type="text" ng-model="words[key]">
+    </li>
+  </ul>
+</div>

@@ -16,28 +16,17 @@
   <script src="js/controllers.js"></script>
   <script src="js/filters.js"></script>
   <script src="js/services.js"></script>
+  <script src="js/directives.js"></script>
 </head>
 
-<body ng-controller="LanguageCtrl">
+<body>
   <div class="container">
    <div class="row jumbotron text-center">
     <h1>Translation service</h1>
    </div>
-    <div class="row">
-      <ul class="nav nav-tabs nav-justified">
-        <li ng-repeat="language in languages">
-          <a href="#{{ language }}" data-toggle="tab" ng-click="setLanguage(language)" ng-click="getWords()">{{ language | capitalize}}</a>
-        </li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane" ng-repeat="language in languages" id="{{ language }}">
-            <ul class="list-group">
-              <li class="list-group-item text-center" ng-repeat="(key, value) in words">
-                {{ key }} : <input type="text" ng-model="words[key]">
-              </li>
-            </ul>
-        </div>
-      </div>
+    <div class="row"  ng-controller="LanguageCtrl">
+      <ul languages class="nav nav-tabs nav-justified"></ul>
+      <div words class="tab-content"></div>
     </div>
   </div>
 </body>

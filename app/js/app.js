@@ -3,7 +3,7 @@
 /* App Module */
 
 (function() {
-  var dictApp = angular.module('dictApp', ['ngResource','dictControllers', 'dictFilters','dictServices']);
+  var dictApp = angular.module('dictApp', ['ngResource','dictControllers', 'dictFilters','dictServices','dictDirectives']);
 
   // The url of api service used to translate words
   dictApp.constant('apiUrl', 'http://private-9b43f-translateservice.apiary-mock.com');
