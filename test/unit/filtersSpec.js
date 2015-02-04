@@ -8,7 +8,7 @@ describe('filter', function() {
 
   describe('capitalize', function() {
 
-    it('should capitalize first letter or when recieves no input, return empty string',
+    it('should capitalize first letter or empty string with no input',
         inject(function(capitalizeFilter) {
             expect(capitalizeFilter('test')).toBe('Test');
             expect(capitalizeFilter('various words test')).toBe('Various words test');

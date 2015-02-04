@@ -14,14 +14,14 @@
 5 verbose install     'shelljs' ] ]
 6 info preinstall dict@0.0.0
 7 verbose readDependencies using package.json deps
-8 verbose already installed skipping karma-jasmine@^0.1.5 /home/jules/Projects/dict
-9 verbose already installed skipping protractor@~1.0.0 /home/jules/Projects/dict
-10 verbose already installed skipping http-server@^0.6.1 /home/jules/Projects/dict
-11 verbose already installed skipping tmp@0.0.23 /home/jules/Projects/dict
-12 verbose already installed skipping bower@^1.3.1 /home/jules/Projects/dict
-13 verbose already installed skipping shelljs@^0.2.6 /home/jules/Projects/dict
-14 verbose already installed skipping karma@^0.12.16 /home/jules/Projects/dict
-15 verbose already installed skipping karma-chrome-launcher@^0.1.4 /home/jules/Projects/dict
+8 verbose already installed skipping karma@^0.12.16 /home/jules/Projects/dict
+9 verbose already installed skipping karma-chrome-launcher@^0.1.4 /home/jules/Projects/dict
+10 verbose already installed skipping karma-jasmine@^0.1.5 /home/jules/Projects/dict
+11 verbose already installed skipping protractor@~1.0.0 /home/jules/Projects/dict
+12 verbose already installed skipping http-server@^0.6.1 /home/jules/Projects/dict
+13 verbose already installed skipping tmp@0.0.23 /home/jules/Projects/dict
+14 verbose already installed skipping bower@^1.3.1 /home/jules/Projects/dict
+15 verbose already installed skipping shelljs@^0.2.6 /home/jules/Projects/dict
 16 silly resolved []
 17 info build /home/jules/Projects/dict
 18 verbose linkStuff [ false, false, false, '/home/jules/Projects' ]

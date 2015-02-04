@@ -1,3 +1,5 @@
 - Angular service for http request
 + Generate tab numbers dynamically
+- Implement mode as a service/provider with CRUD functions
+- confirgurable api in the provider
 
