@@ -1,0 +1,61 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.36
+4 verbose readDependencies using package.json deps
+5 verbose install where, deps [ '/home/jules/Projects/dict',
+5 verbose install   [ 'karma',
+5 verbose install     'karma-chrome-launcher',
+5 verbose install     'karma-jasmine',
+5 verbose install     'protractor',
+5 verbose install     'http-server',
+5 verbose install     'tmp',
+5 verbose install     'bower',
+5 verbose install     'shelljs' ] ]
+6 info preinstall dict@0.0.0
+7 verbose readDependencies using package.json deps
+8 verbose already installed skipping karma-jasmine@^0.1.5 /home/jules/Projects/dict
+9 verbose already installed skipping protractor@~1.0.0 /home/jules/Projects/dict
+10 verbose already installed skipping http-server@^0.6.1 /home/jules/Projects/dict
+11 verbose already installed skipping tmp@0.0.23 /home/jules/Projects/dict
+12 verbose already installed skipping bower@^1.3.1 /home/jules/Projects/dict
+13 verbose already installed skipping shelljs@^0.2.6 /home/jules/Projects/dict
+14 verbose already installed skipping karma@^0.12.16 /home/jules/Projects/dict
+15 verbose already installed skipping karma-chrome-launcher@^0.1.4 /home/jules/Projects/dict
+16 silly resolved []
+17 info build /home/jules/Projects/dict
+18 verbose linkStuff [ false, false, false, '/home/jules/Projects' ]
+19 info linkStuff dict@0.0.0
+20 verbose linkBins dict@0.0.0
+21 verbose linkMans dict@0.0.0
+22 verbose rebuildBundles dict@0.0.0
+23 verbose rebuildBundles [ '.bin',
+23 verbose rebuildBundles   'bower',
+23 verbose rebuildBundles   'http-server',
+23 verbose rebuildBundles   'karma',
+23 verbose rebuildBundles   'karma-chrome-launcher',
+23 verbose rebuildBundles   'karma-jasmine',
+23 verbose rebuildBundles   'protractor',
+23 verbose rebuildBundles   'shelljs',
+23 verbose rebuildBundles   'tmp' ]
+24 info install dict@0.0.0
+25 info postinstall dict@0.0.0
+26 verbose unsafe-perm in lifecycle true
+27 info dict@0.0.0 Failed to exec postinstall script
+28 error dict@0.0.0 postinstall: `bower install`
+28 error Exit status 1
+29 error Failed at the dict@0.0.0 postinstall script.
+29 error This is most likely a problem with the dict package,
+29 error not with npm itself.
+29 error Tell the author that this fails on your system:
+29 error     bower install
+29 error You can get their info via:
+29 error     npm owner ls dict
+29 error There is likely additional logging output above.
+30 error System Linux 3.13.0-45-generic
+31 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+32 error cwd /home/jules/Projects/dict
+33 error node -v v0.10.36
+34 error npm -v 1.4.28
+35 error code ELIFECYCLE
+36 verbose exit [ 1, true ]
