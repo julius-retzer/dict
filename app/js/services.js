@@ -2,7 +2,7 @@
 
 /* Services */
 (function() {
-  
+
   var dictServices = angular.module('dictServices', []);
 
   dictServices.provider('translationService', function() {
@@ -14,15 +14,23 @@
 
 
     this.$get = ['$http', 'apiUrl', function ($http, apiUrl) {
-      return {
-        getLanguages : function(){
-          return $http.get(apiUrl + '/languages');
-          }
-        }
       
+      var db = {};
+      
+      var obj ={}; 
+      
+      obj.getLanguages = function(){
+        return $http.get(apiUrl + '/languages');
+      };
+      
+      obj.getWords = function(language){
+        return $http.get(apiUrl + '/translate/' + language);
+      };
+      
+      return obj;
     }];
-      
+
 
   });
-  
+
 })();

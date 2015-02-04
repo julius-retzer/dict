@@ -24,14 +24,18 @@
     <h1>Translation service</h1>
    </div>
     <div class="row">
-      <ul class="nav nav-tabs nav-justified" >
-        <li role="presentation" ng-repeat="language in languages">
-          <a href="#{{ language }}" data-toggle="tab">{{ language | capitalize}}</a>
+      <ul class="nav nav-tabs nav-justified">
+        <li ng-repeat="language in languages">
+          <a href="#{{ language }}" data-toggle="tab" ng-click="setLanguage(language)" ng-click="getWords()">{{ language | capitalize}}</a>
         </li>
       </ul>
       <div class="tab-content">
-        <div role="tabpanel" class="tab-pane" ng-repeat="language in languages" id="{{ language }}">
-            <p>here be words {{$index}}</p>
+        <div class="tab-pane" ng-repeat="language in languages" id="{{ language }}">
+            <ul class="list-group">
+              <li class="list-group-item text-center" ng-repeat="(key, value) in words">
+                {{ key }} : <input type="text" ng-model="words[key]">
+              </li>
+            </ul>
         </div>
       </div>
     </div>
