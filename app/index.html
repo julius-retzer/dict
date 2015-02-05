@@ -24,10 +24,17 @@
    <div class="row jumbotron text-center">
     <h1>Translation service</h1>
    </div>
-    <div class="row"  ng-controller="LanguageCtrl">
-      <ul languages class="nav nav-tabs nav-justified"></ul>
-      <div words class="tab-content"></div>
+    <div class="row" ng-controller="LanguageCtrl">
+    <ul languages class="nav nav-tabs nav-justified"></ul>
+    <div class="tab-content">
+        <div class="tab-pane" ng-repeat="language in languages" id="{{ language.name }}">
+            <ul class="list-group">
+                <words></words>
+            </ul>
+        </div>
     </div>
+    
+</div>
   </div>
 </body>
 

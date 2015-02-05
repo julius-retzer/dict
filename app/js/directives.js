@@ -6,8 +6,9 @@ var dictApp = angular.module('dictDirectives',[])
 
 dictApp.directive("words", function() {
   return {
-    restrict: "A",
-    templateUrl: "partials/words.html"
+    restrict: "E",
+    templateUrl: "partials/words.html",
+    controller: "WordCtrl"
   }
 });
 

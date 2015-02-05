@@ -1,7 +1,5 @@
-<div class="tab-pane" ng-repeat="language in languages" id="{{ language.name }}">
-  <ul class="list-group">
-    <li class="list-group-item text-center" ng-repeat="(key, value) in language.words">
-      {{ key }} : {{ value }}
-    </li>
-  </ul>
-</div>
+<li class="list-group-item text-center" ng-repeat="(key, value) in language.words">
+    <button ng-show="isEditing">Delete</button>
+    <span>{{ key }}</span> : <span ng-click="startEditing()">{{ value }}</span>
+    <button ng-show="isEditing" ng-click="stopEditing()">ok</button>
+</li>

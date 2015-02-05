@@ -4,4 +4,5 @@
 + confirgurable api in the provider
 - fix ng-href
 - grid according to size
+- use directives to attach controlles
 
