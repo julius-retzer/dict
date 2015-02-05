@@ -37,7 +37,10 @@
                         result.words = response.data;
                 });
             };
-
+            
+            db.deleteWord = function(word, language){
+                delete language.words[word];
+            };
 
 
             return db;

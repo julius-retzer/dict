@@ -1,5 +1,4 @@
-<li class="list-group-item text-center" ng-repeat="(key, value) in language.words">
-    <button ng-show="isEditing">Delete</button>
-    <span>{{ key }}</span> : <span ng-click="startEditing()">{{ value }}</span>
-    <button ng-show="isEditing" ng-click="stopEditing()">ok</button>
-</li>
+
+<button ng-show="isEditing" ng-click="deleteWord(key, language)">Delete</button>
+<span>{{ key }}</span> : <span class="editable" contenteditable="true" ng-model="value" ng-click="startEditing()" sng-blur="stopEditing()">{{ value }}</span>
+<button ng-show="isEditing" ng-click="saveWord(key, value)">ok</button>

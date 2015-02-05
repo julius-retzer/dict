@@ -17,13 +17,24 @@
 
     }]);
 
-    dictControllers.controller('WordCtrl',['$scope', function($scope){
+    dictControllers.controller('WordCtrl',['$scope', 'translationService', function($scope, translationService ){
         
         $scope.isEditing = false;
 
         
-        $scope.startEditing = function(){
-          $scope.isEditing = true;  
+        $scope.saveWord = function(key, value, language) {
+            translationService.save() //todo
+            $scope.stopEditing();
+        };
+        
+        $scope.deleteWord = function(key, language) {
+            translationService.deleteWord(key, language) //todo
+            $scope.stopEditing();
+        };
+        
+        $scope.startEditing = function(key, value){
+            $scope.isEditing = true;
+            $scope.orig = angular.copy()
         };
     
         $scope.stopEditing = function(){
