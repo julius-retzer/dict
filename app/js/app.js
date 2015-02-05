@@ -12,9 +12,9 @@
     translationServiceProvider.setApiUrl(apiUrl);
   }]);
   
-  dictApp.config(['$httpProvider', function ($httpProvider) {
-            // enable http caching
-           $httpProvider.defaults.cache = true;
-      }])
+//  dictApp.config(['$httpProvider', function ($httpProvider) {
+//            // enable http caching
+//           $httpProvider.defaults.cache = true;
+//      }])
 
 })();
