@@ -2,4 +2,6 @@
 + Generate tab numbers dynamically
 - Implement mode as a service/provider with CRUD functions
 + confirgurable api in the provider
+- fix ng-href
+- grid according to size
 

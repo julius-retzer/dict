@@ -7,12 +7,11 @@
 
   dictControllers.controller('LanguageCtrl', ['$scope', 'translationService', function($scope, translationService){
 
-    $scope.activeLanguage = 'english';
-
-    translationService.getLanguages().success(function(response){
-      $scope.languages = response;
-    });
-
+    translationService.getLanguages().then(function(){
+        $scope.languages = translationService.dict
+    })
+    
+    
     $scope.getWords = function(language) {
       translationService.getWords(language).success(function(response){
         $scope.words = response;

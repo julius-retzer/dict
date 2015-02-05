@@ -11,5 +11,10 @@
   dictApp.config(['translationServiceProvider', 'apiUrl', function(translationServiceProvider, apiUrl) {
     translationServiceProvider.setApiUrl(apiUrl);
   }]);
+  
+  dictApp.config(['$httpProvider', function ($httpProvider) {
+            // enable http caching
+           $httpProvider.defaults.cache = true;
+      }])
 
 })();
