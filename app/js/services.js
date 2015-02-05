@@ -17,20 +17,24 @@
 
             var db ={}; 
             
-            db.dict = [];
+            db.languages = [];
             
             db.getLanguages = function(){
-                return $http.get(apiUrl + '/languages')
+                return $http
+                    .get(apiUrl + '/languages')
                     .then(function(response){
-                        angular.copy(response.data, db.dict);
+                        for (var i = 0; i < response.data.length; i++) {
+                            db.languages.push({'name' : response.data[i]})
+                        }
                     })
             };
 
             db.getWords = function(language){
-                return $http.get(apiUrl + '/translate/' + language)
+                var result = db.languages.filter(function(lang){ return lang.name === language})[0];
+                return $http
+                    .get(apiUrl + '/translate/' + language)
                     .then(function(response){
-                        var lanaguageIndex = db.dict.indexOf(language);
-                    
+                        result.words = response.data;
                 });
             };
 

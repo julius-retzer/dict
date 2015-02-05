@@ -8,15 +8,11 @@
   dictControllers.controller('LanguageCtrl', ['$scope', 'translationService', function($scope, translationService){
 
     translationService.getLanguages().then(function(){
-        $scope.languages = translationService.dict
+        $scope.languages = translationService.languages
     })
     
     
-    $scope.getWords = function(language) {
-      translationService.getWords(language).success(function(response){
-        $scope.words = response;
-      });
-    };
+    $scope.getWords = function(language) { translationService.getWords(language) };
 
 
   }]);

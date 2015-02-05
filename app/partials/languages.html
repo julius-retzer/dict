@@ -1,3 +1,3 @@
 <li ng-repeat="language in languages">
-  <a href="#{{ language }}" data-toggle="tab" ng-click="getWords(language)">{{ language | capitalize}}</a>
+  <a href="#{{ language.name }}" data-toggle="tab" ng-click="getWords(language.name)">{{ language.name | capitalize}}</a>
 </li>
