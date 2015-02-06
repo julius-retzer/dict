@@ -1,42 +1,17 @@
 /* app css stylesheet */
 
-.editable span {
-    cursor: pointer;
-}
-.editable input {
-    display: none;
-    
-}
-.editable.active span {
-    display: none;
-}
-.editable.active input {
-    display: inline-block;
-    width: inherit;
-    position: relative;
-}
-
-
 .word-list {
     background-color: #4E5D6C;
 }
-
 
 .list-group-item {
     min-width: 200px;
     min-height: 80px;
     margin-top: 15px;
 }
+/* New word form */
 
-.left-word, .right-word {
-    font-size: 18px;
-}
-
-.left-word {
-    font-weight: bold;
-}
-
- .add-form a {
+.add-form a {
     width: 100%;
     margin-top: 10px;
     margin-bottom: 20px;
@@ -47,8 +22,41 @@
     margin-bottom: 15px;
 }
 
-
 .add-form input {
     width: 100% !important;
     margin: 20px 0px 20px 0px;
+}
+/* Word editing */
+
+.left-word,
+.right-word {
+    font-size: 18px;
+}
+
+.left-word {
+    font-weight: bold;
+}
+
+.editable span {
+    cursor: pointer;
+}
+
+.editable span:hover {
+    background-color: #2B3E50;
+}
+
+.editable input {
+    display: none;
+    
+}
+
+.editable.active span {
+    display: none;
+}
+
+.editable.active input {
+    display: inline-block;
+    color: #EBEBEB;
+    border: none;
+    background-color: #2B3E50;
 }
