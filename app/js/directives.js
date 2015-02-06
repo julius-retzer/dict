@@ -4,25 +4,35 @@
 
 var dictApp = angular.module('dictDirectives',[]);
 
-dictApp.directive("words", function() {
-  return {
-    restrict: "E",
-    templateUrl: "partials/words.html",
-    controller: "WordCtrl"
-  };
-});
-
+//dictApp.directive("words", function() {
+//  return {
+//    restrict: "E",
+//    templateUrl: "partials/words.html",
+//    controller: "WordCtrl"
+//  };
+//});
+//
 dictApp.directive("languages", function() {
   return {
     restrict: "A",
     templateUrl: "partials/languages.html"
   };
-  
 });
+
+dictApp.directive("editable", function() {
+  return {
+    restrict: "A",
+    scope: {content : '=content'},
+    templateUrl: "partials/editable.html"
+  };
+});
+
+
 dictApp.directive("contenteditable", function() {
   return {
-    restrice: "A",
+    restrict: "A",
     require: "ngModel",
+//    template: "partials/editable.html",
     link: function(scope, element, attrs, ngModel) {
 
       function read() {
