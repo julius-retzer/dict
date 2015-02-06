@@ -35,9 +35,7 @@
                             <button ng-click="addWord(language)">Add</button>
                         </li>
                         <li class="list-group-item" ng-repeat="(key, value) in language.words">
-                            <button ng-show="isEditing" ng-click="deleteWord(key, language)">Delete</button>
                             <editable value="key"></editable> : <editable value="value"></editable>
-                            <button ng-show="isEditing" ng-click="saveWord(key, value)">ok</button>
                         </li>
                     </ul>
                 </div>
