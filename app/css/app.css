@@ -12,3 +12,33 @@
 .editable.active input {
     display: inline-block;
 }
+
+.add-from form {
+    width: 150px;
+    display: inline-block;
+}
+
+/*
+.word-list{
+    border-top: none;
+}
+*/
+
+.list-group-item {
+    min-width: 300px;
+    min-height: 70px;
+}
+
+.left-word, .right-word {
+    font-size: 17px;
+}
+
+.btn.add {
+    width: 100%;
+    margin-top: 5px;
+}
+
+.add-form {
+    max-width: 400px;
+    margin: 5px auto 5px auto;
+}
