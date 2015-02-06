@@ -19,32 +19,51 @@ dictApp.directive("languages", function() {
   };
 });
 
-dictApp.directive("editable", function() {
-  return {
-    restrict: "A",
-    scope: {content : '=content'},
-    templateUrl: "partials/editable.html"
-  };
+//dictApp.directive("editable", function() {
+//  return {
+//    restrict: "A",
+//    scope: {content : '=content'},
+//    templateUrl: "partials/editable.html"
+//  };
+//});
+
+
+dictApp.directive('editable', function () {
+    return {
+        restrict: 'E',
+        scope: {
+            value: '='
+        },
+        templateUrl: 'partials/editable.html',
+        link: function ($scope, element, attrs) {
+            // Let's get a reference to the input element, as we'll want to reference it.
+            var inputElement = angular.element(element.children()[1]);
+
+            // This directive should have a set class so we can style it.
+            element.addClass('editable');
+
+            // Initially, we're not editing.
+            $scope.editing = false;
+
+            // ng-click handler to activate edit-in-place
+            $scope.edit = function () {
+                $scope.editing = true;
+
+                // We control display through a class on the directive itself. See the CSS.
+                element.addClass('active');
+
+                // And we must focus the element. 
+                // `angular.element()` provides a chainable array, like jQuery so to access a native DOM function, 
+                // we have to reference the first element in the array.
+                inputElement[0].focus();
+            };
+
+            // When we leave the input, we're done editing.
+            inputElement.blur(function () {
+                $scope.editing = false;
+                element.removeClass('active');
+            });
+        }
+    };
 });
 
-
-dictApp.directive("contenteditable", function() {
-  return {
-    restrict: "A",
-    require: "ngModel",
-    link: function(scope, element, attrs, ngModel) {
-
-      function read() {
-        ngModel.$setViewValue(element.html());
-      }
-
-      ngModel.$render = function() {
-        element.html(ngModel.$viewValue || "");
-      };
-
-      element.bind("blur keyup change", function() {
-        scope.$apply(read);
-      });
-    }
-  };
-});

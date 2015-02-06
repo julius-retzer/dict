@@ -1,1 +1,14 @@
 /* app css stylesheet */
+
+.editable span {
+    cursor: pointer;
+}
+.editable input {
+    display: none;
+}
+.editable.active span {
+    display: none;
+}
+.editable.active input {
+    display: inline-block;
+}
