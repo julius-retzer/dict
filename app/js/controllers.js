@@ -30,7 +30,6 @@
         $scope.isEditing = false;
 
         
-        
         $scope.deleteWord = function(key, language) {
             translationService.deleteWord(key, language) //todo
             $scope.stopEditing();

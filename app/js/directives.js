@@ -32,7 +32,6 @@ dictApp.directive("contenteditable", function() {
   return {
     restrict: "A",
     require: "ngModel",
-//    template: "partials/editable.html",
     link: function(scope, element, attrs, ngModel) {
 
       function read() {
