@@ -5,40 +5,50 @@
 }
 .editable input {
     display: none;
+    
 }
 .editable.active span {
     display: none;
 }
 .editable.active input {
     display: inline-block;
+    width: inherit;
+    position: relative;
 }
 
-.add-from form {
-    width: 150px;
-    display: inline-block;
+
+.word-list {
+    background-color: #4E5D6C;
 }
 
-/*
-.word-list{
-    border-top: none;
-}
-*/
 
 .list-group-item {
-    min-width: 300px;
-    min-height: 70px;
+    min-width: 200px;
+    min-height: 80px;
+    margin-top: 15px;
 }
 
 .left-word, .right-word {
-    font-size: 17px;
+    font-size: 18px;
 }
 
-.btn.add {
+.left-word {
+    font-weight: bold;
+}
+
+ .add-form a {
     width: 100%;
-    margin-top: 5px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .add-form {
-    max-width: 400px;
-    margin: 5px auto 5px auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.add-form input {
+    width: 100% !important;
+    margin: 20px 0px 20px 0px;
 }

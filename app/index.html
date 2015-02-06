@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Translate service</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
     <link rel="stylesheet" href="css/app.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
@@ -21,30 +20,46 @@
 
 <body>
     <div class="container">
-        <div class="row jumbotron text-center">
-            <h1>Translation service</h1>
+        <div class="row">
+            <div class="row jumbotron text-center">
+                <h1>Translation service</h1>
+            </div>
         </div>
         <div class="row" ng-controller="LanguageCtrl">
-            <ul class="nav nav-tabs nav-justified">
+            <ul class="nav nav-pills nav-justified">
                 <li ng-repeat="language in languages">
-                    <a href="#{{ language.name }}" data-toggle="tab" ng-click="getWords(language.name)">{{ language.name | capitalize}}</a>
+                    <a href="#{{ language.name }}" data-toggle="pill" ng-click="getWords(language.name)">{{ language.name | capitalize}}</a>
                 </li>
             </ul>
             <div class="tab-content">
                 <div class="tab-pane" ng-repeat="language in languages" id="{{ language.name }}">
-                    <form class="form-inline add-form">
-                        <input class="form-control" type="text" placeholder="Add new word" ng-model="newWord.key">
-                        <input class="form-control" type="text" placeholder="and its translation" ng-model="newWord.value">
-                        <button class="btn btn-default btn-xs add" ng-click="addWord(language)">Add</button>
-                    </form>
-                    <ul class="list-group text-center word-list">
-                        <li class="list-group-item col-sm-4" ng-repeat="(key, value) in language.words">
-                            <editable class="left-word" value="key"></editable> :
-                            <editable class="right-word" value="value"></editable>
-                            <div class="clearfix" ng-if="$index%3==2"></div>
-                            <div ng-repeat-end=""></div>
-                        </li>
-                    </ul>
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text-center add-form">
+                            <form class="form-inline">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <input class="form-control" type="text" placeholder="Add new word" ng-model="newWord.key">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input class="form-control" type="text" placeholder="and its translation" ng-model="newWord.value">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <a href="#" class="btn btn-primary btn-sm" ng-click="addWord(language)">Add</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="row word-list">
+                        <ul class="list-group text-center">
+                            <li class="list-group-item col-sm-4" ng-repeat="(key, value) in language.words">
+                                <editable class="left-word" value="key"></editable> :
+                                <editable class="right-word" value="value"></editable>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
 
