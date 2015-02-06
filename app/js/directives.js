@@ -47,7 +47,7 @@ dictApp.directive('editable', function () {
 
             // ng-click handler to activate edit-in-place
             $scope.edit = function () {
-                $scope.editing = true;
+                $scope.isEditing = true;
 
                 // We control display through a class on the directive itself. See the CSS.
                 element.addClass('active');
@@ -57,11 +57,13 @@ dictApp.directive('editable', function () {
                 // we have to reference the first element in the array.
                 inputElement[0].focus();
             };
-
+            
             // When we leave the input, we're done editing.
-            inputElement.blur(function () {
-                $scope.editing = false;
-                element.removeClass('active');
+            inputElement.bind('blur keyup', function (e) {
+                if (e.type === 'blur' || e.keyCode === 13){
+                    $scope.isEditing = false;
+                    element.removeClass('active');
+                }
             });
         }
     };
