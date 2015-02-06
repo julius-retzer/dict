@@ -39,6 +39,7 @@
 
 .editable span {
     cursor: pointer;
+    padding: 2px;
 }
 
 .editable span:hover {

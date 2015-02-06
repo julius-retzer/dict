@@ -32,7 +32,7 @@ dictApp.directive('editable', function () {
             };
 
             // When we leave the input, we're done editing.
-            inputElement.bind('blur keyup', function (e) {
+            inputElement.on('blur keyup', function (e) {
                 if (e.type === 'blur' || e.keyCode === 13) {
                     scope.isEditing = false;
                     element.removeClass('active');
