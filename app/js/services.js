@@ -54,8 +54,8 @@
             
             
             //to add or delete word, we pass the corresponding language object, so we don't have to look it up manually
-            db.addWord = function(word, language){
-                delete language.words[word];
+            db.addWord = function(newWord, language){
+                language.words[newWord.key] = newWord.value;
             };
             
             

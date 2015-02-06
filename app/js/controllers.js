@@ -5,15 +5,23 @@
 (function() {
     var dictControllers = angular.module('dictControllers', ['dictServices']);
 
-    dictControllers.controller('LanguageCtrl', ['$scope', 'translationService', function($scope, translationService){
-
+    dictControllers.controller('LanguageCtrl', ['$scope', 'translationService', '$log', function($scope, translationService, $log){
+        
+        $scope.newWord = {};
+        
         translationService.getLanguages().then(function(){
             $scope.languages = translationService.languages
         })
 
 
         $scope.getWords = function(language) { translationService.getWords(language) };
-
+        
+                
+        $scope.addWord = function(language) {
+            console.log(language);
+            translationService.addWord($scope.newWord, language);
+            $scope.newWord = {};
+            };
 
     }]);
 
@@ -22,10 +30,6 @@
         $scope.isEditing = false;
 
         
-        $scope.saveWord = function(key, value, language) {
-            translationService.save() //todo
-            $scope.stopEditing();
-        };
         
         $scope.deleteWord = function(key, language) {
             translationService.deleteWord(key, language) //todo

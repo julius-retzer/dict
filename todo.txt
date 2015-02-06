@@ -7,4 +7,5 @@
 - use directives to attach controlles
 - change words to word
 - panes as urls
+- addButton as a directive?
 
