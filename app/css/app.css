@@ -7,7 +7,7 @@
 .list-group-item {
     min-width: 200px;
     min-height: 80px;
-    margin-top: 15px;
+    margin-top: 100px;
 }
 /* New word form */
 
@@ -37,12 +37,12 @@
     font-weight: bold;
 }
 
-.editable span {
+.editable div {
     cursor: pointer;
     padding: 2px;
 }
 
-.editable span:hover {
+.editable div:hover {
     background-color: #2B3E50;
 }
 
@@ -51,7 +51,7 @@
     
 }
 
-.editable.active span {
+.editable.active div {
     display: none;
 }
 
