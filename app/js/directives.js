@@ -16,7 +16,7 @@ dictApp.directive('editable', function () {
         link: function (scope, element, attrs) {
 
             var inputElement = angular.element(element.children()[1]);
-            var spanElement = element.children()[0]
+            
             element.addClass('editable');
 
             scope.isEditing = false;
@@ -32,19 +32,15 @@ dictApp.directive('editable', function () {
             };
 
             // When we leave the input, we're done editing.
-            inputElement.on('blur keyup', function (e) {
+            inputElement.on(' keyup', function (e) {
                 if (e.type === 'blur' || e.keyCode === 13) {
                     scope.isEditing = false;
                     element.removeClass('active');
                     scope.$apply();
                 }
             });
-
-            function resizeInput() {
-                $(this).attr('size', $(this).val().length);
-            }
-
-            inputElement.focus(resizeInput).keyup(resizeInput).each(resizeInput);
+            
+            //TODO: Only one editable at time
 
         }
     };

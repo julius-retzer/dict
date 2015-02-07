@@ -27,6 +27,7 @@
 .add-form input {
     width: 100% !important;
     margin: 20px 0px 20px 0px;
+    text-align: center;
 }
 /* Word editing */
 
@@ -35,13 +36,10 @@
     font-size: 18px;
 }
 
-.left-word {
-    font-weight: bold;
-}
 
 .editable div {
     cursor: pointer;
-    padding: 2px;
+    padding: 1px;
 }
 
 .editable div:hover {
@@ -62,7 +60,32 @@
     color: #EBEBEB;
     border: none;
     background-color: #2B3E50;
-    width: 98%;
+    width: 100%;
     text-align: center;
     
 }
+
+.editable {
+    position:relative;
+}
+
+.glyph-ok, .glyph-remove {
+    height: 28px;
+    width: 28px;
+    position: absolute;
+    top: -3px;
+}
+
+.glyph-ok {
+    left: 0;
+}
+
+.glyph-remove {
+    right: 0;
+}
+
+
+
+
+
+
