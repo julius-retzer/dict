@@ -43,8 +43,21 @@
                     $http
                         .get(apiUrl + '/translate/' + language)
                         .then(function(response){
-                            result.words = response.data;
-                            deferred.resolve(response.data)
+                            var newWordArray = [];
+                            for (var key in response.data){
+                                if(response.data.hasOwnProperty(key)){
+                                    newWordArray.push({word: key,
+                                                        translation: response.data[key],
+                                                        createdOn: ''}
+                                                      )
+                                }
+                            }
+//                            console.log(result);
+                            result.words = newWordArray;
+//                            console.log(result.words);
+//                            console.log(db);
+                            deferred.resolve(newWordArray);
+                            
                     });
                 }
                 

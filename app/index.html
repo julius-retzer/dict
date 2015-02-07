@@ -53,12 +53,12 @@
                         </div>
                     </div>
                     <div class="row word-list">
-                        <div ng-repeat="(key, value) in language.words">
+                        <div ng-repeat="word in language.words">
                             <div ng-class="{'row' : ($index + 1) % 3 == 0}">
                                 <div class="col-sm-4 text-center word-pair">
-                                    <editable class="left-word" value="key"></editable>
+                                    <editable class="left-word" value="word.word"></editable>
                                     <hr />
-                                    <editable class="right-word" value="value"></editable>
+                                    <editable class="right-word" value="word.translation"></editable>
                                 </div>
                             </div>
                         </div>
