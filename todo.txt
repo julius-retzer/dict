@@ -14,4 +14,5 @@
 - write rows a a directive
 - language end points configurable
 - add button on enter
+- Cant submit empty forms
 

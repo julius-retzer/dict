@@ -1,19 +1,25 @@
 'use strict';
 
-/* jasmine specs for filters go here */
 
-describe('filter', function() {
+describe('filters', function() {
 
-  beforeEach(module('dictFilters'));
+    beforeEach(module('dictFilters'));
+    
+    var capitalizeFilter;
+    
+    describe('capitalize filter', function() {
 
-  describe('capitalize', function() {
+        beforeEach(inject(function(_capitalizeFilter_) {
+            capitalizeFilter = _capitalizeFilter_;
+        }));
 
-    it('should capitalize first letter or empty string with no input',
-        inject(function(capitalizeFilter) {
+        it('should capitalize first letter', function(){
             expect(capitalizeFilter('test')).toBe('Test');
             expect(capitalizeFilter('various words test')).toBe('Various words test');
+        });
+        it('should do nothing if something other than letters provided', function(){
             expect(capitalizeFilter('')).toBe('');
             expect(capitalizeFilter('$%')).toBe('$%');
-    }));
-  });
+        })
+    });
 });

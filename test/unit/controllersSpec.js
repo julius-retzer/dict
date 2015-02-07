@@ -2,7 +2,7 @@
 
 /* jasmine specs for controllers go here */
 
-describe('LanguageCtrl', function () {
+xdescribe('LanguageCtrl', function () {
     
     var scope, ctrl, $httpBackend;
     
