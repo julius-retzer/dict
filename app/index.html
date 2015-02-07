@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Translate service</title>
+    <title>Translation service</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="css/app.css">
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -28,7 +28,11 @@
         <div class="row" ng-controller="LanguageCtrl">
             <ul class="nav nav-pills nav-justified">
                 <li ng-repeat="language in languages">
-                    <a href="#{{ language.name }}" data-toggle="pill" ng-click="getWords(language.name)">{{ language.name | capitalize}}</a>
+                    <a href="#{{ language.name }}"
+                     data-toggle="pill"
+                     ng-click="getWords(language.name)">
+                         {{ language.name | capitalize}}
+                    </a>
                 </li>
             </ul>
             <div class="tab-content">
@@ -38,26 +42,36 @@
                             <form class="form-inline">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <input class="form-control" type="text" placeholder="Add new word..." ng-model="newWord.key">
+                                        <input class="form-control"
+                                         type="text"
+                                         placeholder="Add new word..."
+                                         ng-model="newWord.key">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input class="form-control" type="text" placeholder="...and its translation" ng-model="newWord.translation">
+                                        <input class="form-control"
+                                         type="text"
+                                         placeholder="...and its translation"
+                                         ng-model="newWord.translation">
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <a href="#word-list" class="btn btn-primary btn-sm" ng-click="addWord(language)">Add</a>
+                                        <a href="#word-list"
+                                        class="btn btn-primary btn-md"
+                                        ng-click="addWord(language)">
+                                            Add new word
+                                        </a>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="row word-list" id="word-list" ng-cloak>
+                    <div class="row word-list" id="word-list" ng-if="language.words">
                         <div ng-repeat="word in language.words">
                             <div class="col-sm-4 text-center word-pair">
-                                <editable class="left-word" language="language" value="word.key"></editable>
+                                <editable language="language" value="word.key"></editable>
                                 <hr />
-                                <editable class="right-word" language="language" value="word.translation"></editable>
+                                <editable language="language" value="word.translation"></editable>
                             </div>
                         </div>
                     </div>

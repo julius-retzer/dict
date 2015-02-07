@@ -1,20 +1,25 @@
 /* app css stylesheet */
 
+.container {
+    max-width: 1150px;
+}
+
+.nav {
+    margin-bottom: 58px;
+}
+
 .word-list {
     background-color: #4E5D6C;
     padding-bottom: 115px;
+    margin-top: 70px;
 }
-
-.word-list:empty {
-    visibility: hidden;
-}
-
 
 
 .word-pair {
     min-width: 200px;
     min-height: 80px;
     margin-top: 100px;
+    font-size: 18px;
 }
 
 
@@ -35,12 +40,6 @@
     width: 100% !important;
     margin: 20px 0px 20px 0px;
     text-align: center;
-}
-/* Word editing */
-
-.left-word,
-.right-word {
-    font-size: 18px;
 }
 
 

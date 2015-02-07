@@ -77,11 +77,11 @@
             
             
             db.deleteWord = function(word, language){
+                // find the word in the given language
                 var result = language.words.filter(function(_word){ return _word.key === word || _word.translation === word; })[0];
+                // find its index and pop it from array
                 var resultIndex = language.words.indexOf(result);
-                console.log(word, result, language.words, language.words.length);
                 language.words.splice(resultIndex, 1);
-                //delete language.words;
             };
 
 
