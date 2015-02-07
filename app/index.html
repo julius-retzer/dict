@@ -53,11 +53,12 @@
                         </div>
                     </div>
                     <div class="row word-list" id="word-list">
-                        <div ng-repeat="word in language.words | orderBy : word.createdOn : reverse">
+                        <div ng-repeat="word in language.words | orderBy : word.createdOn">
                             <div ng-class="{'row' : ($index + 1) % 3 == 0}">
                                 <div class="col-sm-4 text-center word-pair">
                                     <editable class="left-word" value="word.key"></editable>
                                     <hr />
+                                    {{word.createdOn}}
                                     <editable class="right-word" value="word.translation"></editable>
                                 </div>
                             </div>
