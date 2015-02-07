@@ -46,10 +46,10 @@
                             var newWordArray = [];
                             for (var key in response.data){
                                 if(response.data.hasOwnProperty(key)){
-                                    newWordArray.push({word: key,
+                                    newWordArray.push({ key: key,
                                                         translation: response.data[key],
-                                                        createdOn: ''}
-                                                      )
+                                                        createdOn: ''
+                                                      })
                                 }
                             }
 //                            console.log(result);
@@ -68,7 +68,10 @@
             
             //to add or delete word, we pass the corresponding language object, so we don't have to look it up manually
             db.addWord = function(newWord, language){
-                language.words[newWord.key] = newWord.value;
+                language.words.unshift({key : newWord.key,
+                                    translation: newWord.translation,
+                                    createdOn: Date.now()
+                                    });
             };
             
             
