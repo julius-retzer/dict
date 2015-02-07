@@ -5,7 +5,7 @@
 (function() {
     var dictControllers = angular.module('dictControllers', ['dictServices']);
 
-    dictControllers.controller('LanguageCtrl', ['$scope', 'translationService', '$log', function($scope, translationService, $log){
+    dictControllers.controller('LanguageCtrl', ['$scope', 'translationService', function($scope, translationService){
         
         
         translationService.getLanguages().then(function(){

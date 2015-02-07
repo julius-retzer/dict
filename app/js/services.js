@@ -52,7 +52,7 @@
                                 if(response.data.hasOwnProperty(key)){
                                     newWordArray.push({ key: key,
                                                         translation: response.data[key],
-                                                        createdOn: ''
+                                                        createdOn: 0
                                                       })
                                 }
                             }
