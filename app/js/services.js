@@ -86,5 +86,12 @@
 
 
     });
-
+    
+    // To share editing state between isolated directives
+    dictServices.factory('isEditingFactory', function(){
+        return {
+            isEditingGlobal : null
+        }
+    })
+    
 })();
