@@ -6,7 +6,7 @@ var dictApp = angular.module('dictDirectives', []);
 
 
 
-dictApp.directive('editable', function () {
+dictApp.directive('editable',['$rootScope', function ($rootScope) {
     return {
         restrict: 'E',
         scope: {
@@ -19,21 +19,28 @@ dictApp.directive('editable', function () {
             
             element.addClass('editable');
 
+            $rootScope.isEditingGlobal = false;
             scope.isEditing = false;
 
             scope.edit = function () {
-                scope.isEditing = true;
+                if ($rootScope.isEditingGlobal === false) {
+                    
+                    $rootScope.isEditingGlobal = true;
+                    scope.isEditing = true;
+                    
+                    // We control display through a class on the directive itself. See the CSS.
+                    element.addClass('active');
 
-                // We control display through a class on the directive itself. See the CSS.
-                element.addClass('active');
 
-
-                inputElement[0].focus();
+                    inputElement[0].focus();
+                    }
             };
 
             // When we leave the input, we're done editing.
-            inputElement.on(' keyup', function (e) {
+            inputElement.on('keyup', function (e) {
                 if (e.type === 'blur' || e.keyCode === 13) {
+                    
+                    $rootScope.isEditingGlobal = false;
                     scope.isEditing = false;
                     element.removeClass('active');
                     scope.$apply();
@@ -44,4 +51,4 @@ dictApp.directive('editable', function () {
 
         }
     };
-});
+}]);

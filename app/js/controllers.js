@@ -15,7 +15,6 @@
 
         $scope.getWords = function(language) { 
             translationService.getWords(language)
-            console.log($scope.languages);
         };
         
         
