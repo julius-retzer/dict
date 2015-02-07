@@ -25,11 +25,13 @@
             $scope.newWord = {};
             };
 
+    }]);
+
+    dictControllers.controller('ButtonCtrl', ['$scope', 'translationService', function($scope, translationService){
+        
         $scope.deleteWord = function(key, language) {
             translationService.deleteWord(key, language) //todo
             
         };
-    }]);
-
-
+    }])
 })();

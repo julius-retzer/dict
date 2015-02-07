@@ -9,6 +9,7 @@ var dictApp = angular.module('dictDirectives', []);
 dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
     return {
         restrict: 'E',
+        controller: 'ButtonCtrl',
         scope: {
             value: '='
         },
@@ -38,14 +39,20 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
 
             // When we leave the input, we're done editing.
             inputElement.on('keyup', function (e) {
-                if (e.type === 'blur' || e.keyCode === 13) {
-                    
+                if (e.keyCode === 13) {
                     isEditingFactory.isEditingGlobal = false;
                     scope.isEditing = false;
                     element.removeClass('active');
                     scope.$apply();
                 }
             });
+            
+            scope.stopEdit = function(){
+                console.log('hello')
+                var e = jQuery.Event("keyup");
+                e.keyCode = 13; 
+                inputElement.trigger(e);
+            }
             
             //TODO: Only one editable at time
 

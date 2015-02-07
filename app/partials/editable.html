@@ -1,7 +1,7 @@
 <div class='editable' ng-click="edit()" ng-bind="value"></div><input ng-model="value"></input>
-<button class="btn btn-primary btn-xs glyph-ok" ng-show="isEditing" ng-click="deleteWord(key, language)">
+<button class="btn btn-primary btn-xs glyph-ok" ng-show="isEditing" ng-click="stopEdit()">
     <span class="glyphicon glyphicon-ok"></span>
 </button>
-<button class="btn btn-danger btn-xs glyph-remove" ng-show="isEditing" ng-click="saveWord(key, value)">
+<button class="btn btn-danger btn-xs glyph-remove" ng-show="isEditing" ng-click="deleteWord(key, language)">
     <span class="glyphicon glyphicon-remove"></span>
 </button>
