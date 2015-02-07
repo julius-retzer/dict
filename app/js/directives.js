@@ -17,6 +17,8 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
         link: function (scope, element, attrs) {
 
             var inputElement = angular.element(element.children()[1]);
+            var okButton = angular.element(element.children()[2])
+            console.log(okButton)
             
             element.addClass('editable');
 
@@ -37,22 +39,21 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
                     }
             };
 
-            // When we leave the input, we're done editing.
-            inputElement.on('keyup', function (e) {
-                if (e.keyCode === 13) {
+            // When we press enter or the keyup button, we're done editing.
+            scope.stopEdit = function (e) {
+                    console.log(e)
+                if (e.type === 'click' || e.keyCode === 13) {
                     isEditingFactory.isEditingGlobal = false;
                     scope.isEditing = false;
                     element.removeClass('active');
                     scope.$apply();
                 }
-            });
+            };
             
-            scope.stopEdit = function(){
-                console.log('hello')
-                var e = jQuery.Event("keyup");
-                e.keyCode = 13; 
-                inputElement.trigger(e);
-            }
+            inputElement.on('keyup', scope.stopEdit);
+            okButton.click(scope.stopEdit);
+            
+            
             
             //TODO: Only one editable at time
 
