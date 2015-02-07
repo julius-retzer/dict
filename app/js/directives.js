@@ -11,14 +11,15 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
         restrict: 'E',
         controller: 'ButtonCtrl',
         scope: {
-            value: '='
+            value: '=',
+            language: '='
         },
         templateUrl: 'partials/editable.html',
         link: function (scope, element, attrs) {
-
+            
             var inputElement = angular.element(element.children()[1]);
             var okButton = angular.element(element.children()[2])
-            console.log(okButton)
+            var deleteButton = angular.element(element.children()[3])
             
             element.addClass('editable');
 
@@ -41,7 +42,6 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
 
             // When we press enter or the keyup button, we're done editing.
             scope.stopEdit = function (e) {
-                    console.log(e)
                 if (e.type === 'click' || e.keyCode === 13) {
                     isEditingFactory.isEditingGlobal = false;
                     scope.isEditing = false;
@@ -51,7 +51,8 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
             };
             
             inputElement.on('keyup', scope.stopEdit);
-            okButton.click(scope.stopEdit);
+            okButton.add(deleteButton).click(scope.stopEdit);
+            
             
             
             

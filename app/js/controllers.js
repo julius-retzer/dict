@@ -11,7 +11,8 @@
         translationService.getLanguages().then(function(){
             $scope.languages = translationService.languages;
         })
-
+        
+        
 
         $scope.getWords = function(language) { 
             translationService.getWords(language)
@@ -23,6 +24,7 @@
         $scope.addWord = function(language) {
             translationService.addWord($scope.newWord, language);
             $scope.newWord = {};
+            console.log($scope.languages)
             };
 
     }]);

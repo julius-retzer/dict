@@ -2,7 +2,14 @@
 
 .word-list {
     background-color: #4E5D6C;
+    padding-bottom: 115px;
 }
+
+.word-list:empty {
+    visibility: hidden;
+}
+
+
 
 .word-pair {
     min-width: 200px;

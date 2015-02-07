@@ -9,4 +9,8 @@
 - panes as urls
 - addButton as a directive?
 - ONly one editable at time. Will need to set global flag
+- look at dom and row
+- sort by date and then name
+- write rows a a directive
+- language end points configurable
 
