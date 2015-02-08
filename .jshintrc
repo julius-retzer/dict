@@ -10,6 +10,9 @@
     "describe": false,
     "beforeEach": false,
     "it": false,
-    "expect": false
+    "expect": false,
+    "spyOn": false,
+    "inject": false,
+    "module": false
   }
 }

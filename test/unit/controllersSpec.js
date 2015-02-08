@@ -1,36 +1,67 @@
 'use strict';
 
-/* jasmine specs for controllers go here */
+describe('Language controller', function() {
+    var scope, translationService, $location;
 
-xdescribe('LanguageCtrl', function () {
-    
-    var scope, ctrl, $httpBackend;
-    
-    
-    beforeEach(module('dictApp'));
-    
-    beforeEach(inject(function (_$httpBackend_, $rootScope, $controller) {
-        $httpBackend = _$httpBackend_;
-        
-        $httpBackend.expectGET('http://private-9b43f-translateservice.apiary-mock.com/languages')
-        .respond(["english", "czech"]);
+    beforeEach(function() {
+        var mockTranslationService = {};
+        module('dictApp', function($provide) {
+            $provide.value('translationService', mockTranslationService);
+        });
 
-        
+        inject(function($q) {
+            mockTranslationService.languages = [
+                {
+                    name: 'slovak'
+                },
+                {
+                    name: 'czech'
+                }
+            ];
+
+            mockTranslationService.languagesWithWords = [{
+                name: 'slovak',
+                words: [{
+                    key: 'Car',
+                    translation: 'Auto',
+                    createdOn: 0
+                }, {
+                    key: 'Flower',
+                    translation: 'Kvet',
+                    createdOn: 0
+                }]
+            }, {
+                name: 'czech',
+                words: {
+                    key: 'Plaza',
+                    translation: 'Namesti',
+                    createdOn: 0
+                }
+            }]
+
+            mockTranslationService.getLanguages = function() {
+                var defer = $q.defer();
+
+                defer.resolve(this.languages)
+
+                return defer.promise;
+            }
+        });
+    });
+
+    beforeEach(inject(function($controller, $rootScope, _$location_, _translationService_) {
         scope = $rootScope.$new();
-        
-        ctrl = $controller('LanguageCtrl', {$scope: scope});
-    }));
-    
-    
-    it("should retrieve language list", inject(function () {
-        expect(scope.languages).toBeUndefined();
-        $httpBackend.flush();
+        $location = _$location_;
+        translationService = _translationService_;
 
-        expect(scope.languages).toEqual(["english", "czech"]);
-    }));
-    
-    
-    
+        spyOn('translationService', getLanguages)
+        $controller('LanguageCtrl',
+                    {$scope: scope, $location: $location, translationService: translationService});
 
+        scope.$digest();
+    }));
+
+    it('should get the language array', function() {
+        expect(translationService.getLanguages).toHaveBeenCalled();
+    });
 });
-

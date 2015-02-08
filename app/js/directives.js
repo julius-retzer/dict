@@ -16,11 +16,11 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
         },
         templateUrl: 'partials/editable.html',
         link: function (scope, element, attrs) {
-            
+
             var inputElement = angular.element(element.children()[1]);
-            var okButton = angular.element(element.children()[2])
-            var deleteButton = angular.element(element.children()[3])
-            
+            var okButton = angular.element(element.children()[2]);
+            var deleteButton = angular.element(element.children()[3]);
+
             element.addClass('editable');
 
             isEditingFactory.isEditingGlobal = false;
@@ -28,13 +28,12 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
 
             scope.edit = function () {
                 if (isEditingFactory.isEditingGlobal === false) {
-                    
+
                     isEditingFactory.isEditingGlobal = true;
                     scope.isEditing = true;
-                    
-                    // We control display through a class on the directive itself. See the CSS.
-                    element.addClass('active');
 
+                    // We control display through CSS
+                    element.addClass('active');
 
                     inputElement[0].focus();
                     }
@@ -49,13 +48,13 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
                     scope.$apply();
                 }
             };
-            
+
             inputElement.on('keyup', scope.stopEdit);
             okButton.add(deleteButton).click(scope.stopEdit);
-            
-            
-            
-            
+
+
+
+
             //TODO: Only one editable at time
 
         }
