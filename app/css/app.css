@@ -55,7 +55,7 @@
 
 .editable input {
     display: none;
-    
+
 }
 
 .editable.active div {
@@ -71,7 +71,7 @@
     background-color: #2B3E50;
     width: 100%;
     text-align: center;
-    
+
 }
 
 .editable {
@@ -92,9 +92,3 @@
 .glyph-remove {
     right: 0;
 }
-
-
-
-
-
-

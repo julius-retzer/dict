@@ -23,10 +23,12 @@
 
         $scope.newWord = {};
 
-        $scope.addWord = function(language) {
-            translationService.addWord($scope.newWord, language);
-            $scope.newWord = {};
-            };
+        $scope.addWord = function(language, isValid) {
+            if (isValid) {
+                translationService.addWord($scope.newWord, language);
+                $scope.newWord = {};
+            }
+        };
 
     }]);
 

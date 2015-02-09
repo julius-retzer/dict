@@ -39,34 +39,41 @@
                 <div class="tab-pane" ng-repeat="language in languages" id="{{ language.name }}">
                     <div class="row">
                         <div class="col-sm-8 col-sm-offset-2 text-center add-form">
-                            <form class="form-inline">
+                            <form novalidate name="addForm" class="form-inline">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <input class="form-control"
+                                        <input required
+                                         class="form-control"
                                          type="text"
                                          placeholder="Add new word..."
-                                         ng-model="newWord.key">
+                                         ng-model="newWord.key"
+                                         ng-min-length="1">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input class="form-control"
+                                        <input required
+                                         class="form-control"
                                          type="text"
                                          placeholder="...and its translation"
-                                         ng-model="newWord.translation">
+                                         ng-model="newWord.translation"
+                                         ng-min-length="1"
+                                         >
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-sm-12">
-                                        <a href="#word-list"
-                                        class="btn btn-primary btn-md"
-                                        ng-click="addWord(language)">
-                                            Add new word
-                                        </a>
+                                        <a
+                                         type="submit"
+                                         class="btn btn-primary btn-md"
+                                         ng-click="addWord(language, addForm.$valid)"
+                                         >
+                                         Add new word
+                                     </a>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-                    <div class="row word-list" id="word-list" ng-if="language.words">
+                    <div class="row word-list" ng-if="language.words">
                         <div ng-repeat="word in language.words | orderBy:['-createdOn', 'key']">
                             <div class="col-sm-4 text-center word-pair">
                                 <editable language="language" value="word.key"></editable>
