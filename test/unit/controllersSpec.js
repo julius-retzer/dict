@@ -1,7 +1,7 @@
 'use strict';
 
 describe('Language controller', function() {
-    var scope, translationService, $location;
+    var scope, translationService, createController;
 
     beforeEach(function() {
         var mockTranslationService = {};
@@ -37,31 +37,30 @@ describe('Language controller', function() {
                     translation: 'Namesti',
                     createdOn: 0
                 }
-            }]
+            }];
 
             mockTranslationService.getLanguages = function() {
-                var defer = $q.defer();
+                var deferred = $q.defer();
 
-                defer.resolve(this.languages)
-
-                return defer.promise;
-            }
+                deferred.resolve(this.languages);
+                return deferred.promise;
+            };
         });
     });
 
-    beforeEach(inject(function($controller, $rootScope, _$location_, _translationService_) {
+    beforeEach(inject(function($controller, $rootScope, _translationService_) {
         scope = $rootScope.$new();
-        $location = _$location_;
         translationService = _translationService_;
-
-        spyOn('translationService', getLanguages)
-        $controller('LanguageCtrl',
-                    {$scope: scope, $location: $location, translationService: translationService});
-
+        createController = function () {
+            return $controller('LanguageCtrl',
+                    {$scope: scope, translationService: translationService});
+        };
         scope.$digest();
     }));
 
     it('should get the language array', function() {
+        spyOn(translationService, 'getLanguages');
+        createController();
         expect(translationService.getLanguages).toHaveBeenCalled();
     });
 });
