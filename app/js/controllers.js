@@ -9,9 +9,9 @@
 
 
         $scope.getLanguages = function() {
-            translationService.getLanguages().then(function(){
-                $scope.languages = translationService.languages;
-            });
+            translationService.getLanguages();
+            $scope.languages = translationService.languages;
+
         };
 
         $scope.getLanguages();

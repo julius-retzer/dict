@@ -4,9 +4,9 @@
 describe('filters', function() {
 
     beforeEach(module('dictFilters'));
-    
+
     var capitalizeFilter;
-    
+
     describe('capitalize filter', function() {
 
         beforeEach(inject(function(_capitalizeFilter_) {
@@ -20,6 +20,6 @@ describe('filters', function() {
         it('should do nothing if something other than letters provided', function(){
             expect(capitalizeFilter('')).toBe('');
             expect(capitalizeFilter('$%')).toBe('$%');
-        })
+        });
     });
 });
