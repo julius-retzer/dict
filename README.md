@@ -21,10 +21,32 @@ Install Nodejs and its package managaer
 
 ### Installing the app
 
-Clone Git repository and change the directory
+#### Clone Git repository and change the directory
 
     git clone https://github.com/wormyy/dict
     cd dict
+
+
+#### Install app dependencies
+
+    npm install
+
+Due to package name conflict it might be necessary to download this package also
+    sudo apt-get install nodejs-legacy
+
+#### Start development server
+
+    npm start
+
+ Now you can access the app at http://localhost:8000/app/
+
+
+
+
+
+
+
+
 
 
 
