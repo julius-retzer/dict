@@ -1,14 +1,20 @@
 'use strict';
 
-/* Services */
 (function() {
 
     var dictServices = angular.module('dictServices', []);
 
+    // Look at app.js for explanation of settings
     dictServices.provider('translationService', function() {
-        var apiUrl;
-        var languageEndpoint;
-        var translateEndPoint;
+        var db,
+            url,
+            result,
+            apiUrl,
+            deferred,
+            resultIndex,
+            languageEndpoint,
+            translateEndPoint;
+
         this.config = function(apiUrl, languageEndpoint, translateEndpoint, mockDB) {
             apiUrl = apiUrl;
             languageEndpoint = languageEndpoint;
@@ -20,7 +26,7 @@
         this.$get = ['$http', 'apiUrl', 'LanguageEndpoint', 'translateEndpoint', '$q', 'mockDB',
             function($http, apiUrl, languageEndpoint, translateEndpoint, $q, mockDB) {
 
-                var db = {};
+                db = {};
 
                 db.languages = [];
 
@@ -40,10 +46,10 @@
                 db.getWords = function(language) {
 
                     // create new promise
-                    var deferred = $q.defer();
+                    deferred = $q.defer();
 
                     // look up the language object to assign words to
-                    var result = db.languages.filter(function(lang) {
+                    result = db.languages.filter(function(lang) {
                         return lang.name === language;
                     })[0];
 
@@ -51,7 +57,7 @@
                     if (typeof result.words !== 'undefined') {
                         deferred.resolve(result.words);
                     } else {
-                        var url = apiUrl + translateEndPoint + language;
+                        url = apiUrl + translateEndPoint + language;
                         url = mockDB ? url + '.json' : url;
                         $http
                             .get(url)
@@ -91,11 +97,11 @@
 
                 db.deleteWord = function(word, language) {
                     // find the word in given language
-                    var result = language.words.filter(function(_word) {
+                    result = language.words.filter(function(_word) {
                         return _word.key === word || _word.translation === word;
                     })[0];
                     // find its index and pop it off of array
-                    var resultIndex = language.words.indexOf(result);
+                    resultIndex = language.words.indexOf(result);
                     language.words.splice(resultIndex, 1);
                 };
 
@@ -106,7 +112,7 @@
 
     });
 
-    // To share editing state between isolated directives
+    // for sharing editing state between isolated directives
     dictServices.factory('isEditingFactory', function() {
         return {
             isEditingGlobal: null

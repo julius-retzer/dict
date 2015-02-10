@@ -19,7 +19,7 @@
 12 error You can get their info via:
 12 error     npm owner ls dict
 12 error There is likely additional logging output above.
-13 error System Linux 3.16.0-23-generic
+13 error System Linux 3.16.0-30-generic
 14 error command "/usr/bin/node" "/usr/bin/npm" "run" "protractor"
 15 error cwd /home/jules/Projects/dict
 16 error node -v v0.10.36

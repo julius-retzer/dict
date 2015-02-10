@@ -73,7 +73,7 @@
                         </div>
                     </div>
                     <div class="row word-list" ng-if="language.words">
-                        <div ng-repeat="word in language.words | orderBy:['-createdOn', 'key']">
+                        <div ng-repeat="word in language.words">
                             <div class="col-sm-4 text-center word-pair">
                                 <editable language="language" value="word.key"></editable>
                                 <hr />

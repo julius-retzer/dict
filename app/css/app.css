@@ -1,4 +1,4 @@
-/* app css stylesheet */
+/* main components */
 
 .container {
     max-width: 1150px;
@@ -42,6 +42,7 @@
     text-align: center;
 }
 
+
 /* Inline edition styling */
 
 .editable div {
@@ -79,10 +80,10 @@
 }
 
 .glyph-ok, .glyph-remove {
-    height: 28px;
-    width: 28px;
+    height: 27px;
+    width: 27px;
     position: absolute;
-    top: -3px;
+    top: -2px;
 }
 
 .glyph-ok {
@@ -90,5 +91,5 @@
 }
 
 .glyph-remove {
-    right: 0;
+    right: 0px;
 }

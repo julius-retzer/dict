@@ -87,15 +87,18 @@ describe('translationService', function() {
 
     it('should fetch the array of languages and construct an array of objects', function() {
       translationService.getLanguages();
-      $httpBackend.flush();
-      expect(translationService.languages).toEqual(mockData.languagesAfter);
 
+      $httpBackend.flush();
+
+      expect(translationService.languages).toEqual(mockData.languagesAfter);
     });
 
     it('should fetch the words and construct the data structure ', function() {
         translationService.languages = mockData.languagesAfter;
+
         translationService.getWords('slovak');
         $httpBackend.flush();
+
         expect(translationService.languages).toEqual(mockData.slovakWordsAfter);
     });
 

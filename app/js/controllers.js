@@ -1,41 +1,42 @@
 'use strict';
 
-/* Controllers */
 
 (function() {
     var dictControllers = angular.module('dictControllers', ['dictServices']);
 
-    dictControllers.controller('LanguageCtrl', ['$scope', 'translationService', function($scope, translationService){
+    dictControllers.controller('LanguageCtrl', ['$scope', 'translationService', 'isEditingFactory',
+        function($scope, translationService, isEditingFactory){
 
-        $scope.getLanguages = function() {
-            translationService.getLanguages();
-            $scope.languages = translationService.languages;
+            $scope.getLanguages = function() {
+                translationService.getLanguages();
+                $scope.languages = translationService.languages;
 
-        };
+            };
 
-        $scope.getLanguages();
-
-
-        $scope.getWords = function(language) {
-            translationService.getWords(language);
-        };
+            $scope.getLanguages();
 
 
-        $scope.newWord = {};
+            $scope.getWords = function(language) {
+                translationService.getWords(language);
+            };
 
-        $scope.addWord = function(language, isValid) {
-            if (isValid) {
-                translationService.addWord($scope.newWord, language);
-                $scope.newWord = {};
-            }
+
+            $scope.newWord = {};
+
+            $scope.addWord = function(language, isValid) {
+                if (isValid && !isEditingFactory.isEditingGlobal) {
+                    translationService.addWord($scope.newWord, language);
+                    $scope.newWord = {};
+                }
         };
 
     }]);
 
-    dictControllers.controller('ButtonCtrl', ['$scope', 'translationService', function($scope, translationService){
+    dictControllers.controller('ButtonCtrl', ['$scope', 'translationService',
+        function($scope, translationService){
 
-        $scope.deleteWord = function(key, language) {
-            translationService.deleteWord(key, language);
+            $scope.deleteWord = function(key, language) {
+                translationService.deleteWord(key, language);
 
         };
     }]);
