@@ -32,6 +32,7 @@ Install Nodejs and its package managaer
     npm install
 
 Due to package name conflict it might be necessary to download this package also
+
     sudo apt-get install nodejs-legacy
 
 #### Start development server
