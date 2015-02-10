@@ -1,81 +1,115 @@
 'use strict';
 
 
-describe('dict app', function() {
+describe('dictApp', function() {
 
-    var inputForms, addButton, wordList, wordsLength, wordSpan, editForm;
+    var word,
+        count,
+        editable,
+        addButton,
+        inputForms,
+        wordsLength,
+        editableInput;
+
+    var selectLanguage = function() {
+        element.all(by.repeater('language in languages')).first().click();
+    };
+
+    var countWords = function() {
+
+        return element.all(by.css('.word-pair')).count();
+    };
+
+    var submitWord = function() {
+        element.all(by.css('.addButton')).first().click();
+    };
 
     beforeEach(function() {
         browser.get('app/index.html');
+        selectLanguage();
     });
 
     it('should have a title', function() {
         expect(browser.getTitle()).toEqual('Translation Service');
     });
 
-    it('should have a title in a jumbotron', function() {
+    it('should have a title in the jumbotron', function() {
         expect(element(by.css('.jumbotron')).getText()).toBe('Translation Service');
     });
 
     it('should list available languages', function() {
-        element.all(by.repeater('language in languages')).then(function(elems) {
-            expect(elems.length).not.toBe(0);
-        });
+        count = element.all(by.repeater('language in languages')).count();
+        expect(count).not.toBe(0);
     });
 
     it('should list words', function() {
-        element.all(by.repeater('language in languages')).then(function(elems) {
-            elems[0].click();
-        });
+        wordsLength = countWords();
 
-        element.all(by.repeater('word in languages.words')).then(function(elems){
-            expect(elems.length).not.toEqual(0);
-        });
+        expect(wordsLength).not.toEqual(0);
     });
 
     it('should not add new word with empty', function() {
         wordsLength = {};
-        wordList = element.all(by.repeater('word in languages.words')).then(function(elems){
-            wordsLength.before = elems.length;
-        });
+        wordsLength.before = countWords();
 
-        addButton = element(by.css('.addButton'));
-        addButton.click();
+        submitWord();
 
-        wordList = element.all(by.repeater('word in languages.words')).then(function(elems){
-            wordsLength.after = elems.length;
-        });
-
+        wordsLength.after = countWords();
         expect(wordsLength.before).toEqual(wordsLength.after);
     });
 
     it('should add new word', function() {
         wordsLength = {};
         inputForms = {};
-        inputForms.key = element(by.model('newWord.key'));
-        inputForms.translation = element(by.model('newWord.translation'));
 
-        wordList = element.all(by.repeater('word in languages.words')).then(function(elems){
-            console.log(elems);
-            wordsLength.before = elems.length;
-        });
+        inputForms.key = element.all(by.model('newWord.key')).first();
+        inputForms.translation = element.all(by.model('newWord.translation')).first();
+
+        wordsLength.before = countWords();
 
         inputForms.key.sendKeys('A new word');
         inputForms.translation.sendKeys('and its translation');
 
-        wordList = element.all(by.repeater('word in languages.words')).then(function(elems){
-            wordsLength.after = elems.length;
-        });
+        submitWord();
 
-        expect(wordsLength.before).toEqual(wordsLength.after + 1);
+        wordsLength.after = countWords();
+
+        // Here should be used:
+        // expect(wordsLength.after).toBeGreaterThan(wordsLength.before + 1);
+        // but I think there is a bug where Jasmine doesn't unwrapp promise...
+        expect(wordsLength.after).toBeGreaterThan(wordsLength.before);
     });
 
-    xit('should edit an existing word', function() {
+    it('should edit an existing word', function() {
+        word = {};
+        editable = element.all(by.css('.editable')).first();
+        editableInput = element.all(by.css('.editable input')).first();
+        word.before = editable.getText();
+
+        editable.click();
+        editableInput.clear();
+        editableInput.sendKeys('AAAAA');
+        editableInput.sendKeys('\n');
+
+        word.after = editable.getText();
+
+        expect(word.before).not.toBe(word.after);
+        expect(word.after).toBe('AAAAA');
+    });
+
+    it('should delete a word', function() {
         wordsLength = {};
-        wordList = element.all(by.repeater('word in languages.words')).then(function(elems){
-            wordsLength.before = elems.length;
-            wordSpan = wordList.
-            editForm = element
-        });
+        editable.before = element.all(by.css('.editable')).first();
+        wordsLength.before = countWords();
+
+        editable.click();
+        element.all(by.css('.glyph-remove')).first().click();
+
+        editable.after = element.all(by.css('.editable')).first();
+        wordsLength.after = countWords();
+
+        expect(editable.before).not.toBe(editable.after);
+        expect(wordsLength.before).toBeGreaterThan(wordsLength.after);
+
     });
 });

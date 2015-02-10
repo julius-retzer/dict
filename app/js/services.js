@@ -51,7 +51,7 @@
                         deferred.resolve(result.words);
                     } else {
                         $http
-                            .get(apiUrl + translateEndPoint + language)
+                            .get(apiUrl + translateEndPoint + language + '.json') //TODO
                             .then(function(response) {
                                 // construct our data structure where each pair is a object in array
                                 var newWordArray = [];
