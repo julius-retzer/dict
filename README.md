@@ -40,39 +40,27 @@ Due to package name conflict it might be necessary to download this package also
 
  Now you can access the app at http://localhost:8000/app/
 
+## Running tests
+
+### Unit tests
+
+To run unit tests simply run
+
+    npm test
+
+
+### End 2 End Testing
+
+First, start development server
+
+    npm start
 
 
 
+Update webdriver (this step is needed only for the first time)
 
-
- #End 2 End Testing (Protractor)
- To run the end-2-end tests against the application you use [Protractor](https://github.com/angular/protractor).
-
- ## Starting the Web Server
- In either case you will need the application to be running via the web-server.
- From the root folder of the repository run:
-
- ```
- npm start
- ```
-
- The application should now be available at `http://localhost:8000/app/index.html`
-
- ## Testing with Protractor
-
- As a one-time setup, download webdriver.
- ```
- npm run update-webdriver
- ```
+    npm run update-webdriver
 
  Start the Protractor test runner using the e2e configuration:
 
- ```
- npm run protractor
- ```
-
-
-
-
-
-[How to install git]: http://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+    npm run protractor
