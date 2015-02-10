@@ -8,18 +8,23 @@ Translate service is application for handling databases of words and translation
 
 #### Git
 
-Install git
+Install Git
 
     apt-get install git
 
 #### Node.js
-Install Nodejs and its package managaer 
+Install Nodejs and its package managaer
 
     sudo apt-get update
     sudo apt-get install nodejs
     sudo apt-get install npm
 
 ### Installing the app
+
+Clone Git repository and change the directory
+
+    git clone https://github.com/wormyy/dict
+    cd dict
 
 
 
