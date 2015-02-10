@@ -3,7 +3,7 @@
 /* App Module */
 
 (function() {
-  var dictApp = angular.module('dictApp', ['ngResource','dictControllers', 'dictFilters','dictServices','dictDirectives']);
+  var dictApp = angular.module('dictApp', ['dictControllers', 'dictFilters','dictServices','dictDirectives']);
 
   // The url of api service used to translate words or path to local mockDB
   dictApp.constant('apiUrl', '/mockDB');
