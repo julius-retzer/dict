@@ -1,6 +1,6 @@
-# Translate Service
+# Translation Service
 
-Translate service is application for handling databases of words and translations in various languages. It supports getting data from remote servers through configurable API or a local storage.
+Translation service is application for handling databases of words and translations in various languages. It supports getting data from remote servers through configurable API or a local storage.
 
 ## How to run app locally (instructions specific for Ubuntu)
 
