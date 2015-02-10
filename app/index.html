@@ -20,7 +20,7 @@
         <div class="row" ng-controller="LanguageCtrl">
             <ul class="nav nav-pills nav-justified">
                 <li ng-repeat="language in languages">
-                    <a href="#{{ language.name }}"
+                    <a ng-href="#{{ language.name }}"
                      data-toggle="pill"
                      ng-click="getWords(language.name)">
                          {{ language.name | capitalize}}

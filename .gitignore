@@ -5,3 +5,5 @@ tmp
 .idea
 .DS_Store
 bower_components/
+npm-debug.log
+todo.txt
