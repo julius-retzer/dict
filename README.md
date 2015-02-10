@@ -65,3 +65,24 @@ Update webdriver (this step is needed only for the first time)
  Start the Protractor test runner using the e2e configuration:
 
     npm run protractor
+
+## App configuration
+
+In js/app.js module it is possible configure custom API server address, API endpoints, or local database:
+
+The url of api service used to translate words or path to local mockDB
+You can use inculded mockDB with one language by specifiyng '/mockDB'
+
+    dictApp.constant('apiUrl', 'yourCustomApiURL');
+
+Endpoint to get list of languages, eg.:
+
+    dictApp.constant('LanguageEndpoint', '/languages/');
+
+Endpoint to get lists words, eg.:
+
+    dictApp.constant('translateEndpoint', '/translate/');
+
+If mockDB is set to true, suffix .json is appended to requests
+
+    dictApp.constant('mockDB', 'false');
