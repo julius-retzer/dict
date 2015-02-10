@@ -51,7 +51,7 @@
                     if (typeof result.words !== 'undefined') {
                         deferred.resolve(result.words);
                     } else {
-                        var url = apiUrl + translateEndPoint + language
+                        var url = apiUrl + translateEndPoint + language;
                         url = mockDB ? url + '.json' : url;
                         $http
                             .get(url)
@@ -65,7 +65,7 @@
                                             key: key,
                                             translation: response.data[key],
                                             createdOn: 0
-                                        })
+                                        });
                                     }
                                 }
                                 result.words = newWordArray;
@@ -79,7 +79,7 @@
                 };
 
 
-                //to add or delete word, we also pass the corresponding language object, so we don't have to look it up manually
+                // to add or delete word, we also pass the corresponding language object, to optimize search
                 db.addWord = function(newWord, language) {
                     language.words.unshift({
                         key: newWord.key,

@@ -36,7 +36,7 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
                     element.addClass('active');
 
                     inputElement[0].focus();
-                    }
+                }
             };
 
             // When we press enter or the keyup button, we're done editing.
@@ -51,11 +51,6 @@ dictApp.directive('editable',['isEditingFactory', function (isEditingFactory) {
 
             inputElement.on('keyup', scope.stopEdit);
             okButton.add(deleteButton).click(scope.stopEdit);
-
-
-
-
-            //TODO: Only one editable at time
 
         }
     };

@@ -17,6 +17,7 @@ describe('filters', function() {
             expect(capitalizeFilter('test')).toBe('Test');
             expect(capitalizeFilter('various words test')).toBe('Various words test');
         });
+        
         it('should do nothing if something other than letters provided', function(){
             expect(capitalizeFilter('')).toBe('');
             expect(capitalizeFilter('$%')).toBe('$%');

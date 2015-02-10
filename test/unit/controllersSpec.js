@@ -10,35 +10,10 @@ describe('Language controller', function() {
             $provide.value('translationService', mockTranslationService);
         });
 
-        inject(function($q) {
-            deferred = $q.defer();
+        mockTranslationService.getLanguages = jasmine.createSpy();
+        mockTranslationService.getWords = jasmine.createSpy();
+        mockTranslationService.addWord = jasmine.createSpy();
 
-            mockTranslationService.languages =  [
-                {
-                    name: 'slovak'
-                },
-                {
-                    name: 'czech'
-                }
-            ];
-
-            mockTranslationService.languagesWithWords = [{
-                name: 'slovak',
-                words: [{
-                    key: 'Car',
-                    translation: 'Auto',
-                    createdOn: 0
-                }]
-            }];
-
-
-
-            mockTranslationService.getLanguages = jasmine.createSpy();
-            mockTranslationService.getWords = jasmine.createSpy();
-            mockTranslationService.addWord = jasmine.createSpy();
-
-
-        });
     });
 
     beforeEach(inject(function($controller, $rootScope, _translationService_) {

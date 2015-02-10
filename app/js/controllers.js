@@ -7,7 +7,6 @@
 
     dictControllers.controller('LanguageCtrl', ['$scope', 'translationService', function($scope, translationService){
 
-
         $scope.getLanguages = function() {
             translationService.getLanguages();
             $scope.languages = translationService.languages;
@@ -15,6 +14,7 @@
         };
 
         $scope.getLanguages();
+
 
         $scope.getWords = function(language) {
             translationService.getWords(language);

@@ -13,6 +13,7 @@
     "expect": false,
     "spyOn": false,
     "inject": false,
+    "jasmine": false,
     "module": false
   }
 }
