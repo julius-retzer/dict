@@ -6,18 +6,19 @@
     var dictServices = angular.module('dictServices', []);
 
     dictServices.provider('translationService', function() {
-        var apiUrl = null;
+        var apiUrl;
         var languageEndpoint;
         var translateEndPoint;
-        this.config = function(apiUrl, languageEndpoint, translateEndpoint) {
+        this.config = function(apiUrl, languageEndpoint, translateEndpoint, mockDB) {
             apiUrl = apiUrl;
             languageEndpoint = languageEndpoint;
             translateEndPoint = translateEndpoint;
+            mockDB = mockDB;
         };
 
 
-        this.$get = ['$http', 'apiUrl', 'LanguageEndpoint', 'translateEndpoint', '$q',
-            function($http, apiUrl, languageEndpoint, translateEndpoint, $q) {
+        this.$get = ['$http', 'apiUrl', 'LanguageEndpoint', 'translateEndpoint', '$q', 'mockDB',
+            function($http, apiUrl, languageEndpoint, translateEndpoint, $q, mockDB) {
 
                 var db = {};
 
@@ -50,8 +51,10 @@
                     if (typeof result.words !== 'undefined') {
                         deferred.resolve(result.words);
                     } else {
+                        var url = apiUrl + translateEndPoint + language
+                        url = mockDB ? url + '.json' : url;
                         $http
-                            .get(apiUrl + translateEndPoint + language + '.json') //TODO
+                            .get(url)
                             .then(function(response) {
                                 // construct our data structure where each pair is a object in array
                                 var newWordArray = [];
@@ -87,15 +90,14 @@
 
 
                 db.deleteWord = function(word, language) {
-                    // find the word in the given language
+                    // find the word in given language
                     var result = language.words.filter(function(_word) {
                         return _word.key === word || _word.translation === word;
                     })[0];
-                    // find its index and pop it from array
+                    // find its index and pop it off of array
                     var resultIndex = language.words.indexOf(result);
                     language.words.splice(resultIndex, 1);
                 };
-
 
                 return db;
             }
@@ -108,7 +110,7 @@
     dictServices.factory('isEditingFactory', function() {
         return {
             isEditingGlobal: null
-        }
-    })
+        };
+    });
 
 })();

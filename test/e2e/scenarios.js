@@ -1,6 +1,6 @@
 'use strict';
 
-
+// It is strongly recommended to run this tests with local DB.
 describe('dictApp', function() {
 
     var word,
