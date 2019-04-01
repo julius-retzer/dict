@@ -1,3 +1,6 @@
+This was a homework for the interview proccess for eDocu in Bratislava, Slovakia.
+
+
 # Translation Service
 
 Translation service is application for handling databases of words and translations in various languages. It supports getting data from remote servers through configurable API or a local storage.
